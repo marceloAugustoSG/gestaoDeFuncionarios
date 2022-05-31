@@ -94,9 +94,11 @@ public class BuscarFuncionarioView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Idade", "Função", "Salário base(R$)"
+
             }
         ));
+        tblBuscarFuncionarios.setEditingColumn(0);
+        tblBuscarFuncionarios.setEditingRow(0);
         jScrollPane1.setViewportView(tblBuscarFuncionarios);
 
         btnVisualizar.setText("Visualizar");

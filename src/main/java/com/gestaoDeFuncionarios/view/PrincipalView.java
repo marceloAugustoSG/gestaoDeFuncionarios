@@ -1,16 +1,20 @@
 package com.gestaoDeFuncionarios.view;
 
+import com.gestaoDeFuncionarios.collection.FuncionarioCollection;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class PrincipalView extends javax.swing.JFrame {
 
+ 
+
     public PrincipalView() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(this.getParent());
         this.setExtendedState(MAXIMIZED_BOTH);
+        
     }
 
     public JMenuItem getmOpBuscar() {
@@ -100,8 +104,6 @@ public class PrincipalView extends javax.swing.JFrame {
     public void setmOpSair(JMenuItem mOpSair) {
         this.mOpSair = mOpSair;
     }
-
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

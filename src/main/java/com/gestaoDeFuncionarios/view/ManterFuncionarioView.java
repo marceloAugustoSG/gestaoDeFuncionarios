@@ -7,110 +7,110 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
 public class ManterFuncionarioView extends javax.swing.JFrame {
-    
+
     public ManterFuncionarioView() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(this.getParent());
-        
+
     }
-    
+
     public JButton getBtnEditar() {
         return btnEditar;
     }
-    
+
     public void setBtnEditar(JButton btnEditar) {
         this.btnEditar = btnEditar;
     }
-    
+
     public JButton getBtnExcluir() {
         return btnExcluir;
     }
-    
+
     public void setBtnExcluir(JButton btnExcluir) {
         this.btnExcluir = btnExcluir;
     }
-    
+
     public JButton getBtnFechar() {
         return btnFechar;
     }
-    
+
     public void setBtnFechar(JButton btnFechar) {
         this.btnFechar = btnFechar;
     }
-    
+
     public JButton getBtnSalvar() {
         return btnSalvar;
     }
-    
+
     public void setBtnSalvar(JButton btnSalvar) {
         this.btnSalvar = btnSalvar;
     }
-    
+
     public JComboBox<String> getCbOpcoesBonus() {
         return cbOpcoesBonus;
     }
-    
+
     public void setCbOpcoesBonus(JComboBox<String> cbOpcoesBonus) {
         this.cbOpcoesBonus = cbOpcoesBonus;
     }
-    
+
     public JComboBox<String> getCbOpcoesCargo() {
         return cbOpcoesCargo;
     }
-    
+
     public void setCbOpcoesCargo(JComboBox<String> cbOpcoesCargo) {
         this.cbOpcoesCargo = cbOpcoesCargo;
     }
-    
+
     public JCheckBox getCheckedFuncionarioMes() {
         return checkedFuncionarioMes;
     }
-    
+
     public void setCheckedFuncionarioMes(JCheckBox checkedFuncionarioMes) {
         this.checkedFuncionarioMes = checkedFuncionarioMes;
     }
-    
+
     public JFormattedTextField getTxtDataAdmissao() {
         return txtDataAdmissao;
     }
-    
+
     public void setTxtDataAdmissao(JFormattedTextField txtDataAdmissao) {
         this.txtDataAdmissao = txtDataAdmissao;
     }
-    
+
     public JTextField getTxtFaltas() {
         return txtFaltas;
     }
-    
+
     public void setTxtFaltas(JTextField txtFaltas) {
         this.txtFaltas = txtFaltas;
     }
-    
+
     public JTextField getTxtIdade() {
         return txtIdade;
     }
-    
+
     public void setTxtIdade(JTextField txtIdade) {
         this.txtIdade = txtIdade;
     }
-    
+
     public JTextField getTxtNome() {
         return txtNome;
     }
-    
+
     public void setTxtNome(JTextField txtNome) {
         this.txtNome = txtNome;
     }
-    
+
     public JTextField getTxtSalario() {
         return txtSalario;
     }
-    
+
     public void setTxtSalario(JTextField txtSalario) {
         this.txtSalario = txtSalario;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
