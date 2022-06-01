@@ -53,7 +53,7 @@ public class ManterFuncionarioPresenter {
         int faltas = Integer.parseInt(view.getTxtFaltas().getText());
         String dataAdmissao = view.getTxtDataAdmissao().getText();
         
-        Funcionario funcionario = new Funcionario(nome, idade, salario, cargo);
+        Funcionario funcionario = new Funcionario(nome, idade, salario, cargo, faltas, dataAdmissao);
         funcionarios.add(funcionario);
         
         JOptionPane.showMessageDialog(view, "Funcionario :" + funcionario.getNome() + "\nCargo: " + funcionario.getCargo() + "\nIdade: " + funcionario.getIdade() + " \nsalvo com sucesso!");

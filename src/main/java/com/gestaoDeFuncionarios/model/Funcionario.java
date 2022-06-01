@@ -6,16 +6,19 @@ public class Funcionario {
     private int idade;
     private double salario;
     private String cargo;
+    private int numFaltas;
+    private String dataAdmissao;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
     private Bonus bonus;
 
-    public Funcionario(String nome, int idade, double salario, String cargo) {
+    public Funcionario(String nome, int idade, double salario, String cargo, int numFaltas, String dataAdmissao) {
         this.nome = nome;
         this.idade = idade;
         this.salario = salario;
         this.cargo = cargo;
-
+        this.numFaltas = numFaltas;
+        this.dataAdmissao = dataAdmissao;
     }
 
     public Funcionario(String nome, double salario, String cargo) {
@@ -64,4 +67,19 @@ public class Funcionario {
         this.bonus = bonus;
     }
 
+    public int getNumFaltas() {
+        return this.numFaltas;
+    }
+
+    public void setNumFaltas(int numFaltas) {
+        this.numFaltas = numFaltas;
+    }
+    
+    public String getDataAdmissao() {
+        return this.dataAdmissao;
+    }
+
+    public void setDataAdmissao(String dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
 }
