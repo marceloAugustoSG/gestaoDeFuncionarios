@@ -49,11 +49,12 @@ public class ManterFuncionarioPresenter {
         String cargo = (String) view.getCbOpcoesCargo().getSelectedItem();
         int idade = Integer.parseInt(view.getTxtIdade().getText());
         String tipoBonus = (String) view.getCbOpcoesBonus().getSelectedItem();
-        double salario = Double.parseDouble(view.getTxtSalario().getText());
+        double salarioBase = Double.parseDouble(view.getTxtSalario().getText());
         int faltas = Integer.parseInt(view.getTxtFaltas().getText());
         String dataAdmissao = view.getTxtDataAdmissao().getText();
+        boolean funcionarioDoMes = view.getCheckedFuncionarioMes().isSelected();
         
-        Funcionario funcionario = new Funcionario(nome, idade, salario, cargo, faltas, dataAdmissao);
+        Funcionario funcionario = new Funcionario(nome, idade, salarioBase, cargo, faltas, dataAdmissao, funcionarioDoMes);
         funcionarios.add(funcionario);
         
         JOptionPane.showMessageDialog(view, "Funcionario :" + funcionario.getNome() + "\nCargo: " + funcionario.getCargo() + "\nIdade: " + funcionario.getIdade() + " \nsalvo com sucesso!");

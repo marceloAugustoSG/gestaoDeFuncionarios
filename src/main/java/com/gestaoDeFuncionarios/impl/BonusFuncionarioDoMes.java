@@ -12,16 +12,19 @@ import com.gestaoDeFuncionarios.model.Funcionario;
  *
  * @author Usuário
  */
-public class BonusGeneroso implements IBonus{
+public class BonusFuncionarioDoMes implements IBonus {
 
     @Override
     public double aplicaBonus(Funcionario funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (1.2 * funcionario.getSalarioBase()); //bonusFuncionarioDoMes = 20%
     }
-    
+
     @Override
     public boolean accept(Funcionario funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(funcionario.isFuncionarioDoMes()) {
+            return true;
+        }
+        return false;
     }
     
 }

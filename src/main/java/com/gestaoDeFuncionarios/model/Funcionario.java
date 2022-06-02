@@ -5,20 +5,23 @@ public class Funcionario {
     private String nome;
     private int idade;
     private double salario;
+    private double salarioBase;
     private String cargo;
     private int numFaltas;
     private String dataAdmissao;
+    private boolean funcionarioDoMes;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
     private Bonus bonus;
 
-    public Funcionario(String nome, int idade, double salario, String cargo, int numFaltas, String dataAdmissao) {
+    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes) {
         this.nome = nome;
         this.idade = idade;
-        this.salario = salario;
+        this.salarioBase = salarioBase;
         this.cargo = cargo;
         this.numFaltas = numFaltas;
         this.dataAdmissao = dataAdmissao;
+        this.funcionarioDoMes = funcionarioDoMes;
     }
 
     public Funcionario(String nome, double salario, String cargo) {
@@ -49,6 +52,14 @@ public class Funcionario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+    
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
     }
 
     public String getCargo() {
@@ -81,5 +92,13 @@ public class Funcionario {
 
     public void setDataAdmissao(String dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
+    }
+
+    public boolean isFuncionarioDoMes() {
+        return funcionarioDoMes;
+    }
+
+    public void setFuncionarioDoMes(boolean funcionarioDoMes) {
+        this.funcionarioDoMes = funcionarioDoMes;
     }
 }

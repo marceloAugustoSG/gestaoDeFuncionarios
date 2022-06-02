@@ -5,17 +5,17 @@
  */
 package com.gestaoDeFuncionarios.impl;
 
-import com.gestaoDeFuncionarios.interfaces.ICalculadoraBonus;
+import com.gestaoDeFuncionarios.interfaces.IBonus;
 import com.gestaoDeFuncionarios.model.Funcionario;
 
 /**
  *
  * @author Usuário
  */
-public class BonusAssiduidade implements ICalculadoraBonus{
+public class BonusAssiduidade implements IBonus{
 
     @Override
-    public double calculaBonus(Funcionario funcionario) {
+    public double aplicaBonus(Funcionario funcionario) {
         if(funcionario.getNumFaltas() == 0) {
             return 1.1;
         } else {
@@ -29,6 +29,11 @@ public class BonusAssiduidade implements ICalculadoraBonus{
                 }
             }
         }
+    }
+
+    @Override
+    public boolean accept(Funcionario funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

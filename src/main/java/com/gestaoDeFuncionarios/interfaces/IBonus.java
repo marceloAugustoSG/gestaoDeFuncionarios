@@ -11,6 +11,7 @@ import com.gestaoDeFuncionarios.model.Funcionario;
  *
  * @author Usuário
  */
-public interface ICalculadoraBonus {
-    public double calculaBonus(Funcionario funcionario);
+public interface IBonus {
+    public abstract double aplicaBonus(Funcionario funcionario);
+    public abstract boolean accept(Funcionario funcionario);
 }
