@@ -17,23 +17,19 @@ public class BonusAssiduidade implements IBonus{
     @Override
     public double aplicaBonus(Funcionario funcionario) {
         if(funcionario.getNumFaltas() == 0) {
-            return 1.1;
+            return (1.1 * funcionario.getSalarioBase());
         } else {
             if(funcionario.getNumFaltas() >= 1 && funcionario.getNumFaltas() <= 3) {
-                return 1.05;
+                return (1.05 * funcionario.getSalarioBase());
             } else {
-                if(funcionario.getNumFaltas() >= 4 && funcionario.getNumFaltas() <= 5) {
-                    return 1.01;
-                } else {
-                    return 1.01;
-                }
+                return (1.01 * funcionario.getSalarioBase());
             }
         }
     }
 
     @Override
     public boolean accept(Funcionario funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
     
 }
