@@ -1,5 +1,7 @@
 package com.gestaoDeFuncionarios.model;
 
+import java.util.ArrayList;
+
 public class Funcionario {
 
     private String nome;
@@ -10,11 +12,13 @@ public class Funcionario {
     private int numFaltas;
     private String dataAdmissao;
     private boolean funcionarioDoMes;
+    private String tipoBonus;
+    private ArrayList<Bonus> listBonus;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
-    private Bonus bonus;
+    //private Bonus bonus;
 
-    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes) {
+    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus) {
         this.nome = nome;
         this.idade = idade;
         this.salarioBase = salarioBase;
@@ -22,6 +26,7 @@ public class Funcionario {
         this.numFaltas = numFaltas;
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
+        this.tipoBonus = tipoBonus;
     }
 
     public Funcionario(String nome, double salario, String cargo) {
@@ -70,13 +75,13 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public Bonus getBonus() {
+    /*public Bonus getBonus() {
         return bonus;
     }
 
     public void setBonus(Bonus bonus) {
         this.bonus = bonus;
-    }
+    }*/
 
     public int getNumFaltas() {
         return this.numFaltas;
@@ -100,5 +105,32 @@ public class Funcionario {
 
     public void setFuncionarioDoMes(boolean funcionarioDoMes) {
         this.funcionarioDoMes = funcionarioDoMes;
+    }
+
+    public String getTipoBonus() {
+        return tipoBonus;
+    }
+
+    public void setTipoBonus(String tipoBonus) {
+        this.tipoBonus = tipoBonus;
+    }
+
+    public ArrayList<Bonus> getListBonus() {
+        return listBonus;
+    }
+
+    public void setListBonus(ArrayList<Bonus> listBonus) {
+        this.listBonus = listBonus;
+    }
+    
+    public void addBonus(Bonus bonus) {
+        if (listBonus.contains(bonus)) {
+            throw new RuntimeException("Bônus já aplicado");
+        }
+        if (bonus != null) {
+            listBonus.add(bonus);
+        } else {
+            throw new RuntimeException("Forneça uma instancia de bônus válida");
+        }
     }
 }

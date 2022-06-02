@@ -21,7 +21,14 @@ public class BonusGeneroso implements IBonus{
     
     @Override
     public boolean accept(Funcionario funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(funcionario.getTipoBonus() == "Generoso") {
+           return true;
+        }
+        return false;
     }
     
+    @Override
+    public String toString() {
+        return "Generoso";
+    }
 }

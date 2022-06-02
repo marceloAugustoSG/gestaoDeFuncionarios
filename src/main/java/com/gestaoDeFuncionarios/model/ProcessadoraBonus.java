@@ -33,16 +33,18 @@ public class ProcessadoraBonus {
     }*/
     
     public double processar(Funcionario funcionario) {
-        double bonus = 0;
+        double valorBonus = 0;
+        double bonusTotal = 0;
                 
         for(IBonus processador : processadoresBonus) {
             if(processador.accept(funcionario)){
-                bonus += processador.aplicaBonus(funcionario);
-                //adiciona ao histórico de bonus do usuario
+                valorBonus = processador.aplicaBonus(funcionario);
+                bonusTotal += valorBonus;
+                funcionario.addBonus(new Bonus(processador.toString(), valorBonus));
                 //gera log
             }
         }
         
-        return bonus;
+        return bonusTotal;
     }
 }

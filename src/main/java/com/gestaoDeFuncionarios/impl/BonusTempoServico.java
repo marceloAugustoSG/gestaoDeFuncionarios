@@ -54,4 +54,8 @@ public class BonusTempoServico implements IBonus{
         return false;
     }
     
+    @Override
+    public String toString() {
+        return "TempoServico";
+    }
 }

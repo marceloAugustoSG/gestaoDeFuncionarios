@@ -54,7 +54,7 @@ public class ManterFuncionarioPresenter {
         String dataAdmissao = view.getTxtDataAdmissao().getText();
         boolean funcionarioDoMes = view.getCheckedFuncionarioMes().isSelected();
         
-        Funcionario funcionario = new Funcionario(nome, idade, salarioBase, cargo, faltas, dataAdmissao, funcionarioDoMes);
+        Funcionario funcionario = new Funcionario(nome, idade, salarioBase, cargo, faltas, dataAdmissao, funcionarioDoMes, tipoBonus);
         funcionarios.add(funcionario);
         
         JOptionPane.showMessageDialog(view, "Funcionario :" + funcionario.getNome() + "\nCargo: " + funcionario.getCargo() + "\nIdade: " + funcionario.getIdade() + " \nsalvo com sucesso!");

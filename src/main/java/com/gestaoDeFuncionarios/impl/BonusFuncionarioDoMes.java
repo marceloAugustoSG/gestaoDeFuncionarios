@@ -27,4 +27,8 @@ public class BonusFuncionarioDoMes implements IBonus {
         return false;
     }
     
+    @Override
+    public String toString() {
+        return "FuncionarioDoMes";
+    }
 }

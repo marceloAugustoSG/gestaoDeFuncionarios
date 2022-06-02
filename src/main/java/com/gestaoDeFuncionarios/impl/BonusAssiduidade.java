@@ -31,5 +31,9 @@ public class BonusAssiduidade implements IBonus{
     public boolean accept(Funcionario funcionario) {
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Assiduidade";
+    }
 }
