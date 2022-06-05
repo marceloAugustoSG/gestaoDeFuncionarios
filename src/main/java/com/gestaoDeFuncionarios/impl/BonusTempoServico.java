@@ -5,7 +5,7 @@
  */
 package com.gestaoDeFuncionarios.impl;
 
-import com.gestaoDeFuncionarios.interfaces.IBonus;
+import com.gestaoDeFuncionarios.model.Bonus;
 import com.gestaoDeFuncionarios.model.Funcionario;
 import java.time.LocalDate;
 import java.time.Period;
@@ -14,8 +14,12 @@ import java.time.Period;
  *
  * @author Usuário
  */
-public class BonusTempoServico implements IBonus{
+public class BonusTempoServico extends Bonus{
 
+    public BonusTempoServico(String tipo) {
+        super.setTipo(tipo);
+    }
+    
     @Override
     public double aplicaBonus(Funcionario funcionario) {
         LocalDate now = LocalDate.now();
@@ -24,18 +28,18 @@ public class BonusTempoServico implements IBonus{
         int years = Math.abs(period.getYears());
         
         if(years >= 1 && years <= 5) {
-            return (1.02 * funcionario.getSalarioBase());
+            return (0.02 * funcionario.getSalarioBase());
         } else {
             if(years >= 6 && years <= 10) {
-                return (1.03 * funcionario.getSalarioBase());
+                return (0.03 * funcionario.getSalarioBase());
             } else {
                 if(years >= 11 && years <= 15) {
-                    return (1.08 * funcionario.getSalarioBase());
+                    return (0.08 * funcionario.getSalarioBase());
                 } else {
                     if(years >= 16 && years <= 20) {
-                        return (1.1 * funcionario.getSalarioBase());
+                        return (0.1 * funcionario.getSalarioBase());
                     } else {
-                        return (1.15 * funcionario.getSalarioBase());
+                        return (0.15 * funcionario.getSalarioBase());
                     }
                 }
             }
@@ -54,8 +58,4 @@ public class BonusTempoServico implements IBonus{
         return false;
     }
     
-    @Override
-    public String toString() {
-        return "TempoServico";
-    }
 }

@@ -10,7 +10,6 @@ import com.gestaoDeFuncionarios.impl.BonusFuncionarioDoMes;
 import com.gestaoDeFuncionarios.impl.BonusGeneroso;
 import com.gestaoDeFuncionarios.impl.BonusNormal;
 import com.gestaoDeFuncionarios.impl.BonusTempoServico;
-import com.gestaoDeFuncionarios.interfaces.IBonus;
 import java.util.ArrayList;
 
 /**
@@ -18,33 +17,28 @@ import java.util.ArrayList;
  * @author Usuário
  */
 public class ProcessadoraBonus {
-    private ArrayList<IBonus> processadoresBonus = new ArrayList<>();
+    private ArrayList<Bonus> processadoresBonus = new ArrayList<>();
     
     public ProcessadoraBonus() {
-        this.processadoresBonus.add(new BonusNormal());
-        this.processadoresBonus.add(new BonusGeneroso());
-        this.processadoresBonus.add(new BonusAssiduidade());
-        this.processadoresBonus.add(new BonusFuncionarioDoMes());
-        this.processadoresBonus.add(new BonusTempoServico());
+        this.processadoresBonus.add(new BonusNormal("Normal"));
+        this.processadoresBonus.add(new BonusGeneroso("Generoso"));
+        this.processadoresBonus.add(new BonusAssiduidade("Assiduidade"));
+        this.processadoresBonus.add(new BonusFuncionarioDoMes("FuncionarioDoMes"));
+        this.processadoresBonus.add(new BonusTempoServico("TempoServico"));
     }
     
-    /*public void addBonus(IBonus bonus) {
-        this.bonus.add(bonus);
-    }*/
-    
     public double processar(Funcionario funcionario) {
-        double valorBonus = 0;
         double bonusTotal = 0;
                 
-        for(IBonus processador : processadoresBonus) {
+        for(Bonus processador : processadoresBonus) {
             if(processador.accept(funcionario)){
-                valorBonus = processador.aplicaBonus(funcionario);
-                bonusTotal += valorBonus;
-                funcionario.addBonus(new Bonus(processador.toString(), valorBonus));
+                processador.setValor(processador.aplicaBonus(funcionario));
+                bonusTotal += processador.getValor();
+                funcionario.addBonus(processador);
                 //gera log
             }
         }
         
-        return bonusTotal;
+        return bonusTotal + funcionario.getSalarioBase();
     }
 }

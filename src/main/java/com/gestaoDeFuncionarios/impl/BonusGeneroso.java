@@ -5,30 +5,30 @@
  */
 package com.gestaoDeFuncionarios.impl;
 
-import com.gestaoDeFuncionarios.interfaces.IBonus;
+import com.gestaoDeFuncionarios.model.Bonus;
 import com.gestaoDeFuncionarios.model.Funcionario;
 
 /**
  *
  * @author Usuário
  */
-public class BonusGeneroso implements IBonus{
+public class BonusGeneroso extends Bonus{
 
+    public BonusGeneroso(String tipo) {
+        super.setTipo(tipo);
+    }
+    
     @Override
     public double aplicaBonus(Funcionario funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 200;
     }
     
     @Override
     public boolean accept(Funcionario funcionario) {
-        if(funcionario.getTipoBonus() == "Generoso") {
+        if(funcionario.getTipoBonus().equals(this.getTipo())) {
            return true;
         }
         return false;
     }
-    
-    @Override
-    public String toString() {
-        return "Generoso";
-    }
+
 }

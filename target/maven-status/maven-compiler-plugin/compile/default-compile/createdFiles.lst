@@ -9,7 +9,6 @@ com\gestaoDeFuncionarios\view\VerBonusView.class
 com\gestaoDeFuncionarios\presenter\PrincipalPresenter$2.class
 com\gestaoDeFuncionarios\impl\BonusGeneroso.class
 com\gestaoDeFuncionarios\view\CalcularSalarioView.class
-com\gestaoDeFuncionarios\interfaces\IBonus.class
 com\gestaoDeFuncionarios\presenter\BuscarFuncionarioPresenter$2.class
 com\gestaoDeFuncionarios\view\PrincipalView.class
 com\gestaoDeFuncionarios\presenter\CalcularSalarioPresenter.class

@@ -5,24 +5,28 @@
  */
 package com.gestaoDeFuncionarios.impl;
 
-import com.gestaoDeFuncionarios.interfaces.IBonus;
+import com.gestaoDeFuncionarios.model.Bonus;
 import com.gestaoDeFuncionarios.model.Funcionario;
 
 /**
  *
  * @author Usuário
  */
-public class BonusAssiduidade implements IBonus{
-
+public class BonusAssiduidade extends Bonus{
+    
+    public BonusAssiduidade(String tipo) {
+        super.setTipo(tipo);
+    }
+    
     @Override
     public double aplicaBonus(Funcionario funcionario) {
         if(funcionario.getNumFaltas() == 0) {
-            return (1.1 * funcionario.getSalarioBase());
+            return (0.1 * funcionario.getSalarioBase());
         } else {
             if(funcionario.getNumFaltas() >= 1 && funcionario.getNumFaltas() <= 3) {
-                return (1.05 * funcionario.getSalarioBase());
+                return (0.05 * funcionario.getSalarioBase());
             } else {
-                return (1.01 * funcionario.getSalarioBase());
+                return (0.01 * funcionario.getSalarioBase());
             }
         }
     }
@@ -30,10 +34,5 @@ public class BonusAssiduidade implements IBonus{
     @Override
     public boolean accept(Funcionario funcionario) {
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Assiduidade";
     }
 }

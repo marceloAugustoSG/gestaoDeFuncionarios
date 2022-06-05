@@ -1,15 +1,10 @@
 package com.gestaoDeFuncionarios.model;
 
-public class Bonus {
+public abstract class Bonus {
 
     private String tipo;
     private double valor;
-
-    public Bonus(String tipo, double valor) {
-        this.tipo = tipo;
-        this.valor = valor;
-    }
-
+    
     public String getTipo() {
         return tipo;
     }
@@ -17,6 +12,17 @@ public class Bonus {
     public double getValor() {
         return valor;
     }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+    
+    public abstract double aplicaBonus(Funcionario funcionario);
+    public abstract boolean accept(Funcionario funcionario);
 
     @Override
     public String toString() {

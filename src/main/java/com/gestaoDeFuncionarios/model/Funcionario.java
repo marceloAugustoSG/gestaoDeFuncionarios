@@ -27,6 +27,7 @@ public class Funcionario {
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
         this.tipoBonus = tipoBonus;
+        this.listBonus = new ArrayList();
     }
 
     public Funcionario(String nome, double salario, String cargo) {
@@ -133,4 +134,11 @@ public class Funcionario {
             throw new RuntimeException("Forneça uma instancia de bônus válida");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "nome=" + nome + ", idade=" + idade + ", salario=" + salario + ", salarioBase=" + salarioBase + ", cargo=" + cargo + ", numFaltas=" + numFaltas + ", dataAdmissao=" + dataAdmissao + ", funcionarioDoMes=" + funcionarioDoMes + ", tipoBonus=" + tipoBonus + ", listBonus=" + listBonus + '}';
+    }
+    
+    
 }
