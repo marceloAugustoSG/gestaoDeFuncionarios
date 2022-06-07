@@ -26,20 +26,21 @@ public class BonusTempoServico extends Bonus{
         LocalDate earlier = LocalDate.parse(funcionario.getDataAdmissao());
         Period period = Period.between(now, earlier);
         int years = Math.abs(period.getYears());
+        double salarioBase = funcionario.getSalarioBase();
         
         if(years >= 1 && years <= 5) {
-            return (0.02 * funcionario.getSalarioBase());
+            return (0.02 * salarioBase);
         } else {
             if(years >= 6 && years <= 10) {
-                return (0.03 * funcionario.getSalarioBase());
+                return (0.03 * salarioBase);
             } else {
                 if(years >= 11 && years <= 15) {
-                    return (0.08 * funcionario.getSalarioBase());
+                    return (0.08 * salarioBase);
                 } else {
                     if(years >= 16 && years <= 20) {
-                        return (0.1 * funcionario.getSalarioBase());
+                        return (0.1 * salarioBase);
                     } else {
-                        return (0.15 * funcionario.getSalarioBase());
+                        return (0.15 * salarioBase);
                     }
                 }
             }

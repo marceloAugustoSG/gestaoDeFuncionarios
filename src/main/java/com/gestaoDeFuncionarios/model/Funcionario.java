@@ -13,12 +13,13 @@ public class Funcionario {
     private String dataAdmissao;
     private boolean funcionarioDoMes;
     private String tipoBonus;
+    private double distanciaDoTrabalho;
     private ArrayList<Bonus> listBonus;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
     //private Bonus bonus;
 
-    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus) {
+    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus, double distanciaDoTrabalho) {
         this.nome = nome;
         this.idade = idade;
         this.salarioBase = salarioBase;
@@ -27,6 +28,7 @@ public class Funcionario {
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
         this.tipoBonus = tipoBonus;
+        this.distanciaDoTrabalho = distanciaDoTrabalho;
         this.listBonus = new ArrayList();
     }
 
@@ -114,6 +116,14 @@ public class Funcionario {
 
     public void setTipoBonus(String tipoBonus) {
         this.tipoBonus = tipoBonus;
+    }
+
+    public double getDistanciaDoTrabalho() {
+        return distanciaDoTrabalho;
+    }
+
+    public void setDistanciaDoTrabalho(double distanciaDoTrabalho) {
+        this.distanciaDoTrabalho = distanciaDoTrabalho;
     }
 
     public ArrayList<Bonus> getListBonus() {

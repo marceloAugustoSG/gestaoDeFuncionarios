@@ -53,8 +53,9 @@ public class ManterFuncionarioPresenter {
         int faltas = Integer.parseInt(view.getTxtFaltas().getText());
         String dataAdmissao = view.getTxtDataAdmissao().getText();
         boolean funcionarioDoMes = view.getCheckedFuncionarioMes().isSelected();
+        double distanciaDoTrabalho = Double.parseDouble(view.getTxtDistanciaDoTrabalho().getText());
         
-        Funcionario funcionario = new Funcionario(nome, idade, salarioBase, cargo, faltas, dataAdmissao, funcionarioDoMes, tipoBonus);
+        Funcionario funcionario = new Funcionario(nome, idade, salarioBase, cargo, faltas, dataAdmissao, funcionarioDoMes, tipoBonus, distanciaDoTrabalho);
         funcionarios.add(funcionario);
         
         JOptionPane.showMessageDialog(view, "Funcionario :" + funcionario.getNome() + "\nCargo: " + funcionario.getCargo() + "\nIdade: " + funcionario.getIdade() + " \nsalvo com sucesso!");

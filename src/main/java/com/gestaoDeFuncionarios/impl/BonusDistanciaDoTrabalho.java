@@ -12,28 +12,41 @@ import com.gestaoDeFuncionarios.model.Funcionario;
  *
  * @author Usuário
  */
-public class BonusAssiduidade extends Bonus{
+
+/*
+distancia (km) | valor (R$)
+> 100          | 150
+> 50 <= 100    | 90
+> 10 <= 50     | 30
+<= 10          | 0
+*/
+
+public class BonusDistanciaDoTrabalho extends Bonus{
     
-    public BonusAssiduidade(String tipo) {
+    public BonusDistanciaDoTrabalho(String tipo) {
         super.setTipo(tipo);
     }
-    
+
     @Override
     public double aplicaBonus(Funcionario funcionario) {
-        int faltas = funcionario.getNumFaltas();
-        if(faltas == 0) {
-            return (0.1 * faltas);
+        double distancia = funcionario.getDistanciaDoTrabalho();
+        if(distancia > 100) {
+            return 150;
         } else {
-            if(faltas >= 1 && faltas <= 3) {
-                return (0.05 * funcionario.getSalarioBase());
+            if(distancia > 50 && distancia <= 100) {
+                return 90;
             } else {
-                return (0.01 * funcionario.getSalarioBase());
+                return 30;
             }
         }
     }
 
     @Override
     public boolean accept(Funcionario funcionario) {
-        return true;
+        if(funcionario.getDistanciaDoTrabalho() > 10) {
+            return true;
+        }
+        return false;
     }
+    
 }
