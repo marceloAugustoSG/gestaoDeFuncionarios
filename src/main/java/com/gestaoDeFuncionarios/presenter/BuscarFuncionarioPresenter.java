@@ -14,12 +14,13 @@ import javax.swing.table.DefaultTableModel;
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
-    private FuncionarioCollection funcionarios;
+    private FuncionarioCollection funcionariosInstance;
     private DefaultTableModel tblBFuncionarios;
 
     public BuscarFuncionarioPresenter(FuncionarioCollection funcionarios) {
         view = new BuscarFuncionarioView();
-        this.funcionarios = new FuncionarioCollection();
+        //this.funcionarios = new FuncionarioCollection();
+        this.funcionariosInstance.getInstance();
 
         tblBFuncionarios = new DefaultTableModel(
                 new Object[][]{},
