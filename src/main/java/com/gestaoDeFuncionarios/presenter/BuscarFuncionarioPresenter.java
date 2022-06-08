@@ -10,17 +10,15 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 // teste
-
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
-    private FuncionarioCollection funcionariosInstance;
+    private FuncionarioCollection funcionarios;
     private DefaultTableModel tblBFuncionarios;
 
     public BuscarFuncionarioPresenter(FuncionarioCollection funcionarios) {
         view = new BuscarFuncionarioView();
-        //this.funcionarios = new FuncionarioCollection();
-        this.funcionariosInstance.getInstance();
+        this.funcionarios = new FuncionarioCollection();
 
         tblBFuncionarios = new DefaultTableModel(
                 new Object[][]{},

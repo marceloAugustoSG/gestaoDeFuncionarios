@@ -8,24 +8,23 @@ import java.awt.event.ActionListener;
 public class PrincipalPresenter {
 
     private PrincipalView view;
-    private FuncionarioCollection funcionariosInstance;
+    private FuncionarioCollection funcionarios;
 
     public PrincipalPresenter() {
         view = new PrincipalView();
-        //this.funcionarios = new FuncionarioCollection();
-        this.funcionariosInstance.getInstance();
+        this.funcionarios = new FuncionarioCollection();
 
         view.getmOpCadastrar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ManterFuncionarioPresenter(funcionariosInstance);
+                new ManterFuncionarioPresenter(funcionarios);
             }
         });
 
         view.getmOpBuscar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new BuscarFuncionarioPresenter(funcionariosInstance);
+                new BuscarFuncionarioPresenter(funcionarios);
             }
         });
 

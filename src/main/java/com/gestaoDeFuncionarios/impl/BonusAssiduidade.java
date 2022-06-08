@@ -20,11 +20,10 @@ public class BonusAssiduidade extends Bonus{
     
     @Override
     public double aplicaBonus(Funcionario funcionario) {
-        int faltas = funcionario.getNumFaltas();
-        if(faltas == 0) {
-            return (0.1 * faltas);
+        if(funcionario.getNumFaltas() == 0) {
+            return (0.1 * funcionario.getSalarioBase());
         } else {
-            if(faltas >= 1 && faltas <= 3) {
+            if(funcionario.getNumFaltas() >= 1 && funcionario.getNumFaltas() <= 3) {
                 return (0.05 * funcionario.getSalarioBase());
             } else {
                 return (0.01 * funcionario.getSalarioBase());
