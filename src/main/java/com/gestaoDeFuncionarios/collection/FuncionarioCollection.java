@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class FuncionarioCollection {
-    
+
     private ArrayList<Funcionario> funcionarios;
-    
+
     public FuncionarioCollection() {
         funcionarios = new ArrayList<>();
     }
-    
+
     public void add(Funcionario funcionario) {
         if (funcionarios.contains(funcionario)) {
             throw new RuntimeException("Funcionario já existe");
@@ -22,12 +22,12 @@ public class FuncionarioCollection {
         } else {
             throw new RuntimeException("Forneça uma instancia de funcionario válida");
         }
-        
+
     }
-    
+
     public List<Funcionario> getFuncionarios() {
         return Collections.unmodifiableList(funcionarios);
-        
+
     }
-    
+
 }

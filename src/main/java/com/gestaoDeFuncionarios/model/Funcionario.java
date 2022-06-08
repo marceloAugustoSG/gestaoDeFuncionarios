@@ -14,9 +14,18 @@ public class Funcionario {
     private boolean funcionarioDoMes;
     private String tipoBonus;
     private ArrayList<Bonus> listBonus;
+    //private double bonus;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
     //private Bonus bonus;
+    public Funcionario(String nome, int idade, double salario, String tipoBonus, String cargo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.salario = salario;
+        this.tipoBonus = tipoBonus;
+        this.cargo = cargo;
+
+    }
 
     public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus) {
         this.nome = nome;
@@ -34,6 +43,10 @@ public class Funcionario {
         this.nome = nome;
         this.salario = salario;
         this.cargo = cargo;
+    }
+
+    public Funcionario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNome() {
@@ -59,7 +72,7 @@ public class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-    
+
     public double getSalarioBase() {
         return salarioBase;
     }
@@ -83,7 +96,6 @@ public class Funcionario {
     public void setBonus(Bonus bonus) {
         this.bonus = bonus;
     }*/
-
     public int getNumFaltas() {
         return this.numFaltas;
     }
@@ -91,7 +103,7 @@ public class Funcionario {
     public void setNumFaltas(int numFaltas) {
         this.numFaltas = numFaltas;
     }
-    
+
     public String getDataAdmissao() {
         return this.dataAdmissao;
     }
@@ -123,7 +135,7 @@ public class Funcionario {
     public void setListBonus(ArrayList<Bonus> listBonus) {
         this.listBonus = listBonus;
     }
-    
+
     public void addBonus(Bonus bonus) {
         if (listBonus.contains(bonus)) {
             throw new RuntimeException("Bônus já aplicado");
@@ -139,6 +151,5 @@ public class Funcionario {
     public String toString() {
         return "Funcionario{" + "nome=" + nome + ", idade=" + idade + ", salario=" + salario + ", salarioBase=" + salarioBase + ", cargo=" + cargo + ", numFaltas=" + numFaltas + ", dataAdmissao=" + dataAdmissao + ", funcionarioDoMes=" + funcionarioDoMes + ", tipoBonus=" + tipoBonus + ", listBonus=" + listBonus + '}';
     }
-    
-    
+
 }

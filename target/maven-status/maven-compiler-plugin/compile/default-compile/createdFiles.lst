@@ -13,7 +13,9 @@ com\gestaoDeFuncionarios\presenter\BuscarFuncionarioPresenter$2.class
 com\gestaoDeFuncionarios\view\PrincipalView.class
 com\gestaoDeFuncionarios\presenter\CalcularSalarioPresenter.class
 com\gestaoDeFuncionarios\presenter\PrincipalPresenter$4.class
+com\gestaoDeFuncionarios\DAO\FuncionarioDAO.class
 com\gestaoDeFuncionarios\presenter\ManterFuncionarioPresenter$2.class
+com\gestaoDeFuncionarios\Factory\Conexao.class
 com\gestaoDeFuncionarios\impl\BonusNormal.class
 com\gestaoDeFuncionarios\presenter\CalcularSalarioPresenter$1.class
 com\gestaoDeFuncionarios\impl\BonusTempoServico.class

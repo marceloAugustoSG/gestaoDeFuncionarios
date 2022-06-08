@@ -10,7 +10,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 // teste
-
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
