@@ -13,10 +13,6 @@ public class Funcionario {
     private int numFaltas;
     private String dataAdmissao;
     private boolean funcionarioDoMes;
-<<<<<<< HEAD
-=======
-    private double distanciaDoTrabalho;
->>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
     private String tipoBonus;
     private ArrayList<Bonus> listBonus;
     //private double bonus;
@@ -29,11 +25,6 @@ public class Funcionario {
         this.salario = salario;
         this.tipoBonus = tipoBonus;
         this.cargo = cargo;
-<<<<<<< HEAD
-=======
-
-    }
->>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
 
     }
 
@@ -45,10 +36,6 @@ public class Funcionario {
         this.numFaltas = numFaltas;
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
-<<<<<<< HEAD
-=======
-        this.distanciaDoTrabalho = distanciaDoTrabalho;
->>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
         this.tipoBonus = tipoBonus;
         this.listBonus = new ArrayList();
     }
@@ -60,7 +47,6 @@ public class Funcionario {
     }
 
     public Funcionario() {
-<<<<<<< HEAD
     }
 
     public int getIdFuncionario() {
@@ -69,9 +55,6 @@ public class Funcionario {
 
     public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
     }
 
     public String getNome() {
@@ -145,17 +128,6 @@ public class Funcionario {
         this.funcionarioDoMes = funcionarioDoMes;
     }
 
-<<<<<<< HEAD
-=======
-    public double getDistanciaDoTrabalho() {
-        return distanciaDoTrabalho;
-    }
-
-    public void setDistanciaDoTrabalho(double distanciaDoTrabalho) {
-        this.distanciaDoTrabalho = distanciaDoTrabalho;
-    }
-
->>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
     public String getTipoBonus() {
         return tipoBonus;
     }

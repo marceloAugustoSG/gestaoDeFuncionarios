@@ -11,11 +11,11 @@ com\gestaoDeFuncionarios\presenter\PrincipalPresenter$2.class
 com\gestaoDeFuncionarios\impl\BonusGeneroso.class
 com\gestaoDeFuncionarios\view\CalcularSalarioView.class
 com\gestaoDeFuncionarios\presenter\BuscarFuncionarioPresenter$2.class
-com\gestaoDeFuncionarios\log\FuncionarioLogTXT.class
 com\gestaoDeFuncionarios\view\PrincipalView.class
 com\gestaoDeFuncionarios\presenter\CalcularSalarioPresenter.class
 com\gestaoDeFuncionarios\presenter\PrincipalPresenter$4.class
 com\gestaoDeFuncionarios\DAO\FuncionarioDAO.class
+com\gestaoDeFuncionarios\presenter\BuscarFuncionarioPresenter$4.class
 com\gestaoDeFuncionarios\presenter\ManterFuncionarioPresenter$2.class
 com\gestaoDeFuncionarios\Factory\Conexao.class
 com\gestaoDeFuncionarios\impl\BonusNormal.class
@@ -33,5 +33,4 @@ com\gestaoDeFuncionarios\presenter\IObserver.class
 com\gestaoDeFuncionarios\view\PrincipalView$1.class
 com\gestaoDeFuncionarios\model\ProcessadoraBonus.class
 com\gestaoDeFuncionarios\model\Funcionario.class
-com\gestaoDeFuncionarios\log\FuncionarioLogXML.class
 com\gestaoDeFuncionarios\presenter\BuscarFuncionarioPresenter$1.class
