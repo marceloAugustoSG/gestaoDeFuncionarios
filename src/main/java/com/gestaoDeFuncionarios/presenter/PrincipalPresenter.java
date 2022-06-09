@@ -11,11 +11,19 @@ import java.util.logging.Logger;
 public class PrincipalPresenter {
 
     private PrincipalView view;
+<<<<<<< HEAD
     private FuncionarioSQLDAO funcionarios;
 
     public PrincipalPresenter() {
         view = new PrincipalView();
         this.funcionarios = new FuncionarioSQLDAO();
+=======
+    private FuncionarioCollection funcionarios;
+
+    public PrincipalPresenter() {
+        view = new PrincipalView();
+        this.funcionarios = new FuncionarioCollection();
+>>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
 
         view.getmOpCadastrar().addActionListener(new ActionListener() {
             @Override
@@ -27,6 +35,7 @@ public class PrincipalPresenter {
         view.getmOpBuscar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 
                 try {
                     new BuscarFuncionarioPresenter(funcionarios);
@@ -34,6 +43,9 @@ public class PrincipalPresenter {
                     Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
+=======
+                new BuscarFuncionarioPresenter(funcionarios);
+>>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
             }
         });
 

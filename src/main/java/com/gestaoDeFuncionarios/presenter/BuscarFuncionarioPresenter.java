@@ -13,16 +13,44 @@ import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+<<<<<<< HEAD
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
     private FuncionarioSQLDAO funcionarios;
+=======
+// teste
+public class BuscarFuncionarioPresenter {
+
+    private BuscarFuncionarioView view;
+    private FuncionarioCollection funcionarios;
+>>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
     private DefaultTableModel tblBFuncionarios;
 
     public BuscarFuncionarioPresenter(FuncionarioSQLDAO funcionarios) throws SQLException {
         view = new BuscarFuncionarioView();
+<<<<<<< HEAD
         this.funcionarios = funcionarios;
         carregarTabela();
+=======
+        this.funcionarios = new FuncionarioCollection();
+
+        tblBFuncionarios = new DefaultTableModel(
+                new Object[][]{},
+                new String[]{"ID", "Nome", "Idade", "Função", "Salário Base(R$)"}
+        );
+
+        view.getTblBuscarFuncionarios().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        tblBFuncionarios.setNumRows(0);
+        ListIterator<Funcionario> it = funcionarios.getFuncionarios().listIterator();
+        int id = 0;
+        while (it.hasNext()) {
+            Funcionario funcionario = it.next();
+            tblBFuncionarios.addRow(new Object[]{id, funcionario.getNome(), funcionario.getIdade(), funcionario.getCargo(), funcionario.getSalario()});
+            id++;
+        }
+>>>>>>> 3ccbddcbb56103baada19c6db76a314d3d9171e4
 
         view.getTblBuscarFuncionarios().setModel(tblBFuncionarios);
         view.getTblBuscarFuncionarios().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
