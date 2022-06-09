@@ -48,6 +48,17 @@ public class ManterFuncionarioPresenter {
         view.dispose();
     }
 
+    private void limparCampos() {
+        view.getTxtDataAdmissao().setText(" ");
+        view.getTxtFaltas().setText(" ");
+        view.getTxtIdade().setText(" ");
+        view.getTxtNome().setText(" ");
+        view.getTxtSalario().setText(" ");
+        view.getCbOpcoesBonus().setSelectedIndex(0);
+        view.getCbOpcoesCargo().setSelectedIndex(0);
+
+    }
+
     private void salvar() {
         Funcionario funcionario;
 
@@ -65,7 +76,7 @@ public class ManterFuncionarioPresenter {
 
         funcionarios.create(funcionario);
         JOptionPane.showMessageDialog(view, "Funcionario :" + funcionario.getNome() + "\nCargo: " + funcionario.getCargo() + "\nIdade: " + funcionario.getIdade() + " \nsalvo com sucesso!");
-
+        limparCampos();
     }
 
 }

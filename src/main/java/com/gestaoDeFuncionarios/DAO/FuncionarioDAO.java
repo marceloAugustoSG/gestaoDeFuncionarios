@@ -14,13 +14,15 @@ import java.util.List;
  * @author Marcelo
  */
 public abstract class FuncionarioDAO {
-    
+
     public ArrayList<IObserver> observers;
-    
+
     public abstract boolean create(Funcionario funcionario);
+
     public abstract List<Funcionario> getFuncionarios(String nome);
-    public abstract boolean delete(int idFuncionario);
+
     public abstract void notificar();
+
     public abstract void add(IObserver observer);
-    
+
 }

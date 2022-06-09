@@ -43,6 +43,30 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
 
     }
 
+    public boolean update(int idFuncionario) {
+
+        conexao.conectar();
+        String sql = "UPDATE Funcionario set nome = ?,idade = ?,salario = ?,bonus = ?,cargo = ? WHERE idFuncionario = '" + idFuncionario + "'";
+        PreparedStatement stmt = null;
+        Funcionario funcionario = null;
+        try {
+            stmt = conexao.criarPreparedStatement(sql);
+            stmt.setString(1, funcionario.getNome());
+            stmt.setInt(2, funcionario.getIdade());
+            stmt.setDouble(3, funcionario.getSalario());
+            stmt.setString(4, funcionario.getTipoBonus());
+            stmt.setString(5, funcionario.getCargo());
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conexao.desconectar();
+        System.out.println("chegou aqui");
+        return true;
+
+    }
+
     public List<Funcionario> getFuncionarios() {
 
         List<Funcionario> listaFuncionarios = new ArrayList<>();
@@ -112,11 +136,42 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
 
     }
 
-    @Override
-    public boolean delete(int idFuncionario) {
+    public Funcionario getFuncionario(int idFuncionario) {
+
+        Funcionario funcionario = new Funcionario();
+        conexao.conectar();
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+
+        String sql = "SELECT * FROM Funcionario where idFuncionario = '" + idFuncionario + "'";
+        try {
+
+            stmt = conexao.criarPreparedStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                funcionario = new Funcionario();
+                funcionario.setIdFuncionario(rs.getInt(1));
+                funcionario.setNome(rs.getString(2));
+                funcionario.setIdade(rs.getInt(3));
+                funcionario.setSalario(rs.getDouble(4));
+                funcionario.setTipoBonus(rs.getString(5));
+                funcionario.setCargo(rs.getString(6));
+
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+
+        }
+        conexao.desconectar();
+        return funcionario;
+
+    }
+
+    public boolean delete(Funcionario funcionario) {
         conexao.conectar();
         PreparedStatement stmt;
-        String sql = "DELETE FROM Funcionario WHERE idFuncionario ='" + idFuncionario + "'";
+        String sql = "DELETE FROM Funcionario WHERE idFuncionario ='" + funcionario.getIdFuncionario() + "'";
         stmt = conexao.criarPreparedStatement(sql);
 
         try {

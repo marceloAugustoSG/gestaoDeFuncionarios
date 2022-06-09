@@ -1,15 +1,16 @@
 package com.gestaoDeFuncionarios.presenter;
 
-import com.gestaoDeFuncionarios.DAO.FuncionarioDAO;
 import com.gestaoDeFuncionarios.DAO.FuncionarioSQLDAO;
 import com.gestaoDeFuncionarios.model.Funcionario;
 import com.gestaoDeFuncionarios.view.BuscarFuncionarioView;
+import com.gestaoDeFuncionarios.view.ManterFuncionarioView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ListIterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +19,7 @@ public class BuscarFuncionarioPresenter {
     private BuscarFuncionarioView view;
     private FuncionarioSQLDAO funcionarios;
     private DefaultTableModel tblBFuncionarios;
+    private ManterFuncionarioView telaGenerica;
 
     public BuscarFuncionarioPresenter(FuncionarioSQLDAO funcionarios) throws SQLException {
         view = new BuscarFuncionarioView();
@@ -27,8 +29,7 @@ public class BuscarFuncionarioPresenter {
         view.getTblBuscarFuncionarios().setModel(tblBFuncionarios);
         view.getTblBuscarFuncionarios().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        configurarBtns();
-
+        //configurarBtns();
         view.getBtnFechar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,6 +52,97 @@ public class BuscarFuncionarioPresenter {
             }
         });
 
+        view.getBtnVisualizar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                abrirJanelaVisualizar();
+
+            }
+        });
+
+    }
+
+    private void abrirJanelaVisualizar() {
+        int index = view.getTblBuscarFuncionarios().getSelectedRow();
+        Funcionario funcionario = new Funcionario();
+        FuncionarioSQLDAO funcionarioSDAO = new FuncionarioSQLDAO();
+        funcionario.setIdFuncionario((int) view.getTblBuscarFuncionarios().getValueAt(index, 0));
+        Funcionario funcionarioSelecionado = funcionarioSDAO.getFuncionario(funcionario.getIdFuncionario());
+        System.out.println(funcionarioSelecionado.getNome() + "," + funcionarioSelecionado.getIdade() + "," + funcionarioSelecionado.getTipoBonus());
+
+        telaGenerica = new ManterFuncionarioView();
+        telaGenerica.setTitle("Visualizar Funcionario");
+        telaGenerica.setLocationRelativeTo(null);
+        telaGenerica.getTxtNome().setText(funcionarioSelecionado.getNome());
+        telaGenerica.getTxtIdade().setText(String.valueOf(funcionarioSelecionado.getIdade()));
+        telaGenerica.getTxtSalario().setText(String.valueOf(funcionarioSelecionado.getSalario()));
+        telaGenerica.getTxtFaltas().setText(String.valueOf(funcionario.getNumFaltas()));
+        funcionarioSelecionado.setDataAdmissao("10082020");
+        telaGenerica.getTxtDataAdmissao().setText(funcionarioSelecionado.getDataAdmissao());
+        telaGenerica.getCheckedFuncionarioMes().isSelected();
+        System.out.println(telaGenerica.getCheckedFuncionarioMes());
+
+        // inicia a janela com os campos nao editaveis e o btn salvar
+        telaGenerica.getTxtNome().setEditable(false);
+        telaGenerica.getTxtFaltas().setEditable(false);
+        telaGenerica.getTxtIdade().setEditable(false);
+        telaGenerica.getTxtSalario().setEditable(false);
+        telaGenerica.getTxtDataAdmissao().setEditable(false);
+        telaGenerica.getCbOpcoesCargo().setEnabled(false);
+        telaGenerica.getCbOpcoesBonus().setEnabled(false);
+        telaGenerica.getBtnSalvar().setEnabled(false);
+
+        telaGenerica.getBtnEditar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                telaGenerica.getTxtNome().setEditable(true);
+                telaGenerica.getTxtFaltas().setEditable(true);
+                telaGenerica.getTxtIdade().setEditable(true);
+                telaGenerica.getTxtSalario().setEditable(true);
+                telaGenerica.getTxtDataAdmissao().setEditable(true);
+                telaGenerica.getCbOpcoesCargo().setEnabled(true);
+                telaGenerica.getCbOpcoesBonus().setEnabled(true);
+                telaGenerica.getBtnSalvar().setEnabled(true);
+
+            }
+        });
+
+        telaGenerica.getBtnExcluir().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        telaGenerica.getBtnFechar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                telaGenerica.dispose();
+            }
+        });
+    }
+
+    private void excluirFuncionario() throws SQLException {
+        int index = view.getTblBuscarFuncionarios().getSelectedRow();
+
+        Funcionario funcionarioSelecionado = new Funcionario();
+        FuncionarioSQLDAO funcionarioSDAO = new FuncionarioSQLDAO();
+
+        funcionarioSelecionado.setIdFuncionario((int) view.getTblBuscarFuncionarios().getValueAt(index, 0));
+
+        Object[] options = {"Sim",
+            "Não"};
+        int n = JOptionPane.showOptionDialog(this.telaGenerica,
+                "Realamente deseja excluir o funcionario :" + funcionarioSelecionado.getNome() + " ?",
+                "Exclusão de Funcionario",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, //do not use a custom Icon
+                options, //the titles of buttons
+                options[0]); //default button title
+
+        funcionarioSDAO.delete(funcionarioSelecionado);
+        carregarTabela();
     }
 
     private void carregarTabela() throws SQLException {
@@ -88,6 +180,12 @@ public class BuscarFuncionarioPresenter {
     private void configurarBtns() {
         view.getBtnVerBonus().setEnabled(false);
         view.getBtnVisualizar().setEnabled(false);
+
+    }
+
+    private void habilitarBtns() {
+        view.getBtnVerBonus().setEnabled(true);
+        view.getBtnVisualizar().setEnabled(true);
 
     }
 
