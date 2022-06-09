@@ -1,31 +1,39 @@
 package com.gestaoDeFuncionarios.presenter;
 
-import com.gestaoDeFuncionarios.collection.FuncionarioCollection;
+import com.gestaoDeFuncionarios.DAO.FuncionarioSQLDAO;
 import com.gestaoDeFuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PrincipalPresenter {
 
     private PrincipalView view;
-    private FuncionarioCollection funcionariosInstance;
+    private FuncionarioSQLDAO funcionarios;
 
     public PrincipalPresenter() {
         view = new PrincipalView();
-        //this.funcionarios = new FuncionarioCollection();
-        this.funcionariosInstance.getInstance();
+        this.funcionarios = new FuncionarioSQLDAO();
 
         view.getmOpCadastrar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ManterFuncionarioPresenter(funcionariosInstance);
+                new ManterFuncionarioPresenter(funcionarios);
             }
         });
 
         view.getmOpBuscar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new BuscarFuncionarioPresenter(funcionariosInstance);
+
+                try {
+                    new BuscarFuncionarioPresenter(funcionarios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         });
 

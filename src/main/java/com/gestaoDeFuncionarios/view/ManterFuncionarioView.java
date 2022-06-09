@@ -111,10 +111,6 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
         this.txtSalario = txtSalario;
     }
 
-    public JTextField getTxtDistanciaDoTrabalho() {
-        return txtDistanciaDoTrabalho;
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -138,8 +134,6 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
         txtFaltas = new javax.swing.JTextField();
         checkedFuncionarioMes = new javax.swing.JCheckBox();
         txtDataAdmissao = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtDistanciaDoTrabalho = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cadastrar Funcionário");
@@ -178,8 +172,6 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jLabel8.setText("Distância do Trabalho (Km)");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,6 +183,14 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbOpcoesCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnFechar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnExcluir)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnEditar)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnSalvar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -216,23 +216,7 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                             .addComponent(txtDataAdmissao)
-                            .addComponent(txtIdade)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnFechar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnExcluir)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEditar)
-                                .addGap(15, 15, 15)
-                                .addComponent(btnSalvar))
-                            .addComponent(txtDistanciaDoTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtIdade))))
                 .addGap(15, 15, 15))
         );
 
@@ -266,11 +250,7 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
                     .addComponent(checkedFuncionarioMes)
                     .addComponent(jLabel5)
                     .addComponent(txtDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtDistanciaDoTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnFechar)
                     .addComponent(btnExcluir)
@@ -298,9 +278,7 @@ public class ManterFuncionarioView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JFormattedTextField txtDataAdmissao;
-    private javax.swing.JTextField txtDistanciaDoTrabalho;
     private javax.swing.JTextField txtFaltas;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Funcionario {
 
+    private int idFuncionario;
     private String nome;
     private int idade;
     private double salario;
@@ -13,13 +14,21 @@ public class Funcionario {
     private String dataAdmissao;
     private boolean funcionarioDoMes;
     private String tipoBonus;
-    private double distanciaDoTrabalho;
     private ArrayList<Bonus> listBonus;
+    //private double bonus;
 
     // o bonus ainda nao está sendo usado para salvar o funcionario
     //private Bonus bonus;
+    public Funcionario(String nome, int idade, double salario, String tipoBonus, String cargo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.salario = salario;
+        this.tipoBonus = tipoBonus;
+        this.cargo = cargo;
 
-    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus, double distanciaDoTrabalho) {
+    }
+
+    public Funcionario(String nome, int idade, double salarioBase, String cargo, int numFaltas, String dataAdmissao, boolean funcionarioDoMes, String tipoBonus) {
         this.nome = nome;
         this.idade = idade;
         this.salarioBase = salarioBase;
@@ -28,7 +37,6 @@ public class Funcionario {
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
         this.tipoBonus = tipoBonus;
-        this.distanciaDoTrabalho = distanciaDoTrabalho;
         this.listBonus = new ArrayList();
     }
 
@@ -36,6 +44,17 @@ public class Funcionario {
         this.nome = nome;
         this.salario = salario;
         this.cargo = cargo;
+    }
+
+    public Funcionario() {
+    }
+
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     public String getNome() {
@@ -61,7 +80,7 @@ public class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-    
+
     public double getSalarioBase() {
         return salarioBase;
     }
@@ -85,7 +104,6 @@ public class Funcionario {
     public void setBonus(Bonus bonus) {
         this.bonus = bonus;
     }*/
-
     public int getNumFaltas() {
         return this.numFaltas;
     }
@@ -93,7 +111,7 @@ public class Funcionario {
     public void setNumFaltas(int numFaltas) {
         this.numFaltas = numFaltas;
     }
-    
+
     public String getDataAdmissao() {
         return this.dataAdmissao;
     }
@@ -118,14 +136,6 @@ public class Funcionario {
         this.tipoBonus = tipoBonus;
     }
 
-    public double getDistanciaDoTrabalho() {
-        return distanciaDoTrabalho;
-    }
-
-    public void setDistanciaDoTrabalho(double distanciaDoTrabalho) {
-        this.distanciaDoTrabalho = distanciaDoTrabalho;
-    }
-
     public ArrayList<Bonus> getListBonus() {
         return listBonus;
     }
@@ -133,7 +143,7 @@ public class Funcionario {
     public void setListBonus(ArrayList<Bonus> listBonus) {
         this.listBonus = listBonus;
     }
-    
+
     public void addBonus(Bonus bonus) {
         if (listBonus.contains(bonus)) {
             throw new RuntimeException("Bônus já aplicado");
@@ -149,6 +159,5 @@ public class Funcionario {
     public String toString() {
         return "Funcionario{" + "nome=" + nome + ", idade=" + idade + ", salario=" + salario + ", salarioBase=" + salarioBase + ", cargo=" + cargo + ", numFaltas=" + numFaltas + ", dataAdmissao=" + dataAdmissao + ", funcionarioDoMes=" + funcionarioDoMes + ", tipoBonus=" + tipoBonus + ", listBonus=" + listBonus + '}';
     }
-    
-    
+
 }
