@@ -40,7 +40,11 @@ public class PrincipalPresenter {
         view.getmOpCalcularSalario().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CalcularSalarioPresenter();
+                try {
+                    new CalcularSalarioPresenter(funcionarios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
