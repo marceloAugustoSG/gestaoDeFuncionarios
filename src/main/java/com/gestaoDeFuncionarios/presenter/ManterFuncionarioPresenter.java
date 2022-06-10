@@ -61,7 +61,6 @@ public class ManterFuncionarioPresenter {
 
     private void salvar() {
         Funcionario funcionario;
-
         String nome = view.getTxtNome().getText();
         int idade = Integer.parseInt(view.getTxtIdade().getText());
         double salarioBase = Double.parseDouble(view.getTxtSalario().getText());

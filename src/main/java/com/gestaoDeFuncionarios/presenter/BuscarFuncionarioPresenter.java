@@ -92,6 +92,7 @@ public class BuscarFuncionarioPresenter {
         telaGenerica.getCbOpcoesBonus().setEnabled(false);
         telaGenerica.getBtnSalvar().setEnabled(false);
 
+        //eventos dos botoes
         telaGenerica.getBtnEditar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,10 +108,25 @@ public class BuscarFuncionarioPresenter {
             }
         });
 
+        telaGenerica.getBtnSalvar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    editarFuncioanario();
+                } catch (SQLException ex) {
+                    Logger.getLogger(BuscarFuncionarioPresenter.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+
         telaGenerica.getBtnExcluir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    excluirFuncionario();
+                } catch (SQLException ex) {
+                    Logger.getLogger(BuscarFuncionarioPresenter.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
@@ -120,6 +136,17 @@ public class BuscarFuncionarioPresenter {
                 telaGenerica.dispose();
             }
         });
+
+    }
+
+    private void editarFuncioanario() throws SQLException {
+        int index = view.getTblBuscarFuncionarios().getSelectedRow();
+        Funcionario funcionarioSelecionado = new Funcionario();
+        FuncionarioSQLDAO funcionarioSDAO = new FuncionarioSQLDAO();
+        funcionarioSelecionado.setIdFuncionario((int) view.getTblBuscarFuncionarios().getValueAt(index, 0));
+        funcionarioSDAO.update(funcionarioSelecionado);
+        carregarTabela();
+
     }
 
     private void excluirFuncionario() throws SQLException {
@@ -130,19 +157,16 @@ public class BuscarFuncionarioPresenter {
 
         funcionarioSelecionado.setIdFuncionario((int) view.getTblBuscarFuncionarios().getValueAt(index, 0));
 
-        Object[] options = {"Sim",
-            "Não"};
-        int n = JOptionPane.showOptionDialog(this.telaGenerica,
-                "Realamente deseja excluir o funcionario :" + funcionarioSelecionado.getNome() + " ?",
-                "Exclusão de Funcionario",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null, //do not use a custom Icon
-                options, //the titles of buttons
-                options[0]); //default button title
+        String[] options = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(this.telaGenerica, "Deseja realmente excluir ?", "Excluir Funcionario", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+        if (resposta == 1) {
+            return;
+        }
+        if (resposta == 0) {
 
-        funcionarioSDAO.delete(funcionarioSelecionado);
-        carregarTabela();
+            funcionarioSDAO.delete(funcionarioSelecionado);
+            carregarTabela();
+        }
     }
 
     private void carregarTabela() throws SQLException {

@@ -43,14 +43,15 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
 
     }
 
-    public boolean update(int idFuncionario) {
+    public boolean update(Funcionario funcionario) {
 
         conexao.conectar();
-        String sql = "UPDATE Funcionario set nome = ?,idade = ?,salario = ?,bonus = ?,cargo = ? WHERE idFuncionario = '" + idFuncionario + "'";
+        String sql = "UPDATE funcionario SET nome = ?,idade= ?,salario = ?,bonus = ?,cargo = ? where idFuncionario = '" + funcionario.getIdFuncionario() + "'";
         PreparedStatement stmt = null;
-        Funcionario funcionario = null;
+
         try {
             stmt = conexao.criarPreparedStatement(sql);
+           
             stmt.setString(1, funcionario.getNome());
             stmt.setInt(2, funcionario.getIdade());
             stmt.setDouble(3, funcionario.getSalario());
