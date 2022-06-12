@@ -22,9 +22,9 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
 
         conexao.conectar();
         String sql = "INSERT INTO Funcionario("
-                + "nome,idade,salario,bonus,cargo)"
+                + "nome,idade,salario,bonus,cargo,dataAdmissao,numeroFaltas,funcionarioMes)"
                 + ""
-                + "VALUES(?,?,?,?,?)";
+                + "VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = conexao.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
         try {
             stmt.setString(1, funcionario.getNome());
@@ -32,6 +32,10 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
             stmt.setDouble(3, funcionario.getSalario());
             stmt.setString(4, funcionario.getTipoBonus());
             stmt.setString(5, funcionario.getCargo());
+            stmt.setString(6, funcionario.getDataAdmissao());
+            stmt.setInt(7, funcionario.getNumFaltas());
+            stmt.setBoolean(8, funcionario.isFuncionarioDoMes());
+
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -51,7 +55,7 @@ public class FuncionarioSQLDAO extends FuncionarioDAO {
 
         try {
             stmt = conexao.criarPreparedStatement(sql);
-           
+
             stmt.setString(1, funcionario.getNome());
             stmt.setInt(2, funcionario.getIdade());
             stmt.setDouble(3, funcionario.getSalario());

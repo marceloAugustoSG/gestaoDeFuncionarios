@@ -37,7 +37,7 @@ public class Funcionario {
         this.dataAdmissao = dataAdmissao;
         this.funcionarioDoMes = funcionarioDoMes;
         this.tipoBonus = tipoBonus;
-        this.listBonus = new ArrayList();
+
     }
 
     public Funcionario(String nome, double salario, String cargo) {
